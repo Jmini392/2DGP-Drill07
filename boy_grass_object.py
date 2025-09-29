@@ -38,10 +38,24 @@ class Zombie:
         self.frame = (self.frame + 1) % 10
 
 class BigBall:
-    pass
+    def __init__(self):
+        self.image = load_image('ball41x41.png')
+        self.x = random.randint(0, 800)
+        self.y = 599
+    def draw(self):
+        self.image.draw(self.x, self.y)
+    def update(self):
+        pass
 
 class SmallBall:
-    pass
+    def __init__(self):
+        self.image = load_image('ball21x21.png')
+        self.x = random.randint(0, 800)
+        self.y = 599
+    def draw(self):
+        self.image.draw(self.x, self.y)
+    def update(self):
+        pass
 
 def handle_events():
     global running
@@ -66,6 +80,12 @@ def reset_world():
     # 좀비 1명을 만들고, 월드에 추가
     zombie = Zombie()
     world.append(zombie)
+    # 큰 공 10갸 만들고, 월드에 추가
+    big_balls = [BigBall() for _ in range(10)]
+    world += big_balls
+    # 작은 공 10개 만들고, 월드에 추가
+    small_balls = [SmallBall() for _ in range(10)]
+    world += small_balls
 
 # 게임 로직
 def update_world():
