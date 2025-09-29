@@ -42,10 +42,13 @@ class BigBall:
         self.image = load_image('ball41x41.png')
         self.x = random.randint(0, 800)
         self.y = 599
+        self.speed = random.randint(5, 10)
     def draw(self):
         self.image.draw(self.x, self.y)
     def update(self):
-        pass
+        if self.y > 70:
+            self.y -= self.speed
+
 
 class SmallBall:
     def __init__(self):
