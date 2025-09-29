@@ -13,7 +13,6 @@ class Grass:
         # 아직 미구현입니다
         pass
 
-
 class Boy:
     def __init__(self):
         self.image = load_image('run_animation.png')
@@ -38,6 +37,11 @@ class Zombie:
         self.x += 5
         self.frame = (self.frame + 1) % 10
 
+class BigBall:
+    pass
+
+class SmallBall:
+    pass
 
 def handle_events():
     global running
@@ -47,7 +51,6 @@ def handle_events():
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
-
 
 def reset_world():
     global running
@@ -76,7 +79,6 @@ def rander_world():
     for game_object in world:
         game_object.draw()
     update_canvas()
-
 
 open_canvas()
 
